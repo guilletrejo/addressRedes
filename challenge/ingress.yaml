@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: gui.ejemplo.com
+    http:
+      paths:
+        - path: /tyrion
+          backend:
+            serviceName: tyrion-svc
+            servicePort: 80
+        - path: /jaime
+          backend:
+            serviceName: jaime-svc
+            servicePort: 80
